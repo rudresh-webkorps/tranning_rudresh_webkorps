@@ -45,7 +45,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
         raise error
     return user
 
-    @router.get('/me')
+@router.get('/me')
 def me(user: models.User = Depends(get_current_user)):
     return {'id': user.id, 'email': user.email}
 
